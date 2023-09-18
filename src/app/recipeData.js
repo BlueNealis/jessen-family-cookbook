@@ -3,6 +3,7 @@ const recipes = [{
     recipeName: 'French Silk Pie', 
     author:'Erici Jessen', 
     dateCreated:'09/01/2020', 
+    category:'Dessert',
     ingredients:[
         {type:'topping', ingredients:[{measurement:'4', measurementType:'', ingredientName:'Large Eggs', optional: false},
         {measurement:'1 1/4', measurementType:'Cups', ingredientName:'Sugar', optional: false}, 
@@ -32,6 +33,7 @@ const recipes = [{
     recipeName: 'Simple Brownies', 
     author:'Blue Jessen', 
     dateCreated:'09/13/2023', 
+    category: 'Dessert',
     ingredients:[ 
         {type:'', ingredients:[{measurement:'1', measurementType:'cup', ingredientName:'Flour', optional: false},
         {measurement:'2', measurementType:'Cup', ingredientName:'Sugar', optional: false},

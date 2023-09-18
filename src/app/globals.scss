@@ -1,17 +1,19 @@
+@use "./vars";
 
 
-html, body, button {
+html, body{
   width: 100vw;
+  background-color: vars.$tealLight;
   font-family: var(--font-didact-gothic);
 }
 
 h1, h2, h3 {
+  color: vars.$darkBrown;
   font-family: var(--font-playfair-display);
 }
 
 button {
-  width: 10vw;
-
+  font-family: var(--font-didact-gothic);
 }
 
 button:hover {

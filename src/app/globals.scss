@@ -1,13 +1,19 @@
 
 
 html, body, button {
-  padding: 0; 
+  width: 100vw;
   font-family: var(--font-didact-gothic);
 }
 
 h1, h2, h3 {
   font-family: var(--font-playfair-display);
 }
+
+button {
+  width: 10vw;
+
+}
+
 button:hover {
   cursor: pointer;
 }

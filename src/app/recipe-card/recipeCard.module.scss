@@ -1,0 +1,25 @@
+@use './src/app/vars.scss';
+
+.pageContainer {
+    display: flex; 
+    justify-content: center;
+}
+.cardContainer {
+    width: 90vw;
+    text-align: center;
+}
+
+.recipeCard {
+    display: flex; 
+
+    img {
+        width: 40%;
+       max-height: 40%; 
+    }
+}
+
+.recipeInfo {
+    display: flex;
+    flex-direction: column;
+    background-color: vars.$tealDark;
+}

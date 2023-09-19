@@ -2,6 +2,7 @@
 
 
 .sideNavContainer { 
+
     width: 35vw;
     height: 100%; 
     background-color: vars.$tealDark;
@@ -11,5 +12,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    
+
+    h2 {
+        @include vars.subheader-font();
+    }
+
 }

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
 
-      {/* <SideNav/> */}
+      <SideNav/>
       <NavBar/>  
       <div>
       <Link href='recipe-card'>

@@ -6,13 +6,13 @@ const SideNav = () => {
         <div className={styles.sideNavContainer}>
             <h1>Menu</h1>
             <Link href=''>
-                <h1>Home</h1>
+                <h2>Home</h2>
             </Link>
             <Link href='all-recipes'>
-                <h1>All Recipes</h1>
+                <h2>All Recipes</h2>
             </Link>
             <Link href='add-a-recipe'>
-                <h1>Add A Recipe</h1>
+                <h2>Add A Recipe</h2>
             </Link>
         </div>
     )

@@ -11,3 +11,41 @@ $darkBrown: #421E13;
 
 $green: #354D44;
 $darkGreen: #172D24;
+
+
+$header-font-weight: 600;
+$header-font-size: 48px;
+
+
+$button-font-size: 24px;
+
+$subheader-font-weight: 400;
+$subheader-font-size: 24px;
+
+$paragraph-font-weight: 300;
+$paragraph-font-size: 16px;
+
+$border-radius: 6px;
+
+//Mixins
+
+@mixin header-font() {
+  font-weight: $header-font-weight;
+  font-size: $header-font-size;
+}
+
+@mixin button-font() {
+
+  font-size: $button-font-size;
+  text-transform: uppercase;
+}
+
+@mixin subheader-font() {
+  font-size: $subheader-font-size;
+  font-weight: $subheader-font-weight;
+}
+
+@mixin paragraph-font() {
+  $paragraph-font-weight: 200;
+  $paragraph-font-size: 16px;
+}

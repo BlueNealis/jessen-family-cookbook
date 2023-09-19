@@ -1,0 +1,15 @@
+@use "./src/app/vars.scss";
+
+
+.sideNavContainer { 
+    width: 35vw;
+    height: 100%; 
+    background-color: vars.$tealDark;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}

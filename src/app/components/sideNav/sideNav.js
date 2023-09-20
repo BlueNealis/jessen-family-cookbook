@@ -1,5 +1,9 @@
+'use client'
 import Link from "next/link"
+import { useState } from "react"
 import styles from './sideNav.module.scss'
+
+const [visible, setVisibility] = useState(false);
 
 const SideNav = () => {
     return(

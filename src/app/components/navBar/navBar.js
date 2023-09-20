@@ -4,7 +4,9 @@ const NavBar = () => {
 return(
     <header className={styles.navHeader}>
         <div className={styles.topNavCenter}>
-             <h1>Jessen Family Cookbook</h1>
+            <Link href='/'>
+                 <h1>Jessen Family Cookbook</h1>
+             </Link>
         </div>
         <div className={styles.topNavRight}>
             <Link href='new-recipe' className={styles.newRecipeButton}>
@@ -12,7 +14,7 @@ return(
             </Link>
            
             <button className={styles.menuBurgerButton}>
-             <img src='menu-burger.png' alt='Open Side Menu'/>
+                 <img src='menu-burger.png' alt='Open Side Menu'/>
             </button>
         </div>
     </header>

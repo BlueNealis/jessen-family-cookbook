@@ -1,11 +1,13 @@
 import NavBar from "../components/navBar/navBar";
+import RecipeForm from "./recipeForm";
+
 
 export default function RecipeFormPage() {
 
     return (
       <main >
         <NavBar/>
-        <h1>Recipe Form Here</h1>
+        <RecipeForm/>
       </main>
     )
   

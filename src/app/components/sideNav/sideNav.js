@@ -1,13 +1,25 @@
 'use client'
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from './sideNav.module.scss'
 
-const [visible, setVisibility] = useState(false);
+const SideNav = ({visible}) => {
 
-const SideNav = () => {
+    const [navClasses, setNavClasses] = useState(`${styles.sideNavContainer}`)
+
+    useEffect(() => {
+       if(visible) {
+        setNavClasses(`${styles.sideNavContainer} ${styles.sideNavContainerSlide}`)
+       } else {
+        setNavClasses(`${styles.sideNavContainer}`)
+       }
+
+    })
+
+
+
     return(
-        <div className={styles.sideNavContainer}>
+        <div className={navClasses}>
             <h1>Menu</h1>
             <Link href=''>
                 <h2>Home</h2>

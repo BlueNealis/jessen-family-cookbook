@@ -25,3 +25,16 @@
     
     transform: translate3d(0vw, 0, 0);
 }
+
+.closeNavButton {
+    margin: 20px;
+    margin-left: 85%;
+    background-color: rgba(0,0,0,0.0);
+    border: none;
+    color: vars.$darkGreen;
+    font-size: 48px;
+}
+
+.closeNavButton:hover {
+    color: vars.$goldMedium;
+}

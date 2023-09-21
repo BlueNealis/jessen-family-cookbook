@@ -5,23 +5,28 @@ const RecipeCard = () => {
     const [recipeName, setRecipeName] = useState('French Silk Pie');
     const [imageSource, setImageSource] = useState('');
     const [category, setCategory] = useState('Dessert');
-    const [cardContent, setCardContent] = useState('Fluffy chocolate pie with whipped cream topping');
+   
     const [isActive, setIsActive] = useState({ingredients: true, method:false, notes:false})
+    let recipeData = {ingredients: ['test', 'test'], method:'the process', notes:'like this pie'} 
+    const [cardContent, setCardContent] = useState(recipeData['ingredients']);
 
    const handleClick = (e) => {
-    let headers = Object.keys(isActive)
-    let newActive = {};
-    headers.forEach((header) => {
-        if(header === e.target.id) {
-            newActive[header] = true; 
-        } else {
-            newActive[header] = false;
-        }
-    })
-    setIsActive(newActive)
-
-    
+        let headers = Object.keys(isActive)
+        let newActive = {};
+        headers.forEach((header) => {
+            if(header === e.target.id) {
+                newActive[header] = true; 
+            } else {
+                newActive[header] = false;
+            }
+        })
+        setIsActive(newActive)
+        handleContentChange(e.target.id)
         
+   }
+
+   const handleContentChange = (type) => {
+    setCardContent(recipeData[type])
    }
 
    const checkActiveHeader = (type) => {

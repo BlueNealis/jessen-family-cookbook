@@ -58,6 +58,7 @@ const RecipeCard = () => {
                     </div>
                     
                     {cardContent}
+                    <button onClick={handleClick} id='notes'>Add A Note</button>
                 </div>
             </div>
         </div>

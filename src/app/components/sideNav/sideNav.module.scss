@@ -17,6 +17,7 @@
 
     h2 {
         @include vars.subheader-font();
+        border: 5px solid vars.$darkGreen;
     }
 
 }

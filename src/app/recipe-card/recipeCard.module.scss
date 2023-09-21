@@ -59,4 +59,9 @@
          background-color: vars.$tealDiff;
         }
     }
+
+    button {
+        width: 12vw;
+        box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.35);
+    }
 }

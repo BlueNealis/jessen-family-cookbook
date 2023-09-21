@@ -15,10 +15,17 @@ h1, h2, h3 {
 button {
   font-family: var(--font-didact-gothic);
   @include vars.button-font;
+  padding: 1%; 
+  background-color: vars.$goldLight;
+  border:none;
+  border-radius: 5px;
+  transition: font-size .3s;
 }
 
 button:hover {
   cursor: pointer;
+  font-size: 22px;
+  background-color: vars.$goldMedium;
 }
 
 a {

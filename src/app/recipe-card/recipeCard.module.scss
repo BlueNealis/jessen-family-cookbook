@@ -18,8 +18,18 @@
     }
 }
 
+.recipeHeader {
+    background-color: vars.$goldMedium;
+    padding: 10px; 
+    padding-right: 60px;
+    color: white;
+    font-weight: 400;
+}
+
 .recipeInfo {
     display: flex;
     flex-direction: column;
     background-color: vars.$tealDark;
+    height: 200vh;
+    margin-top: 20px;
 }

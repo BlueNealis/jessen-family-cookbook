@@ -14,8 +14,10 @@ const RecipeCard = () => {
                 <div className={styles.recipeCard}>
                     <img src='https://preppykitchen.com/wp-content/uploads/2021/10/French-Silk-Pie-Recipe-1.jpg'/>
                     <div className={styles.recipeSummary}> 
-                    <h1>{recipeName}</h1>
-                    Some stuff here</div>
+
+                    <h1 className={styles.recipeHeader}>{recipeName}</h1>
+                    Some stuff here
+                    </div>
                 </div>       
                 <div className={styles.recipeInfo}>
                     {cardContent}

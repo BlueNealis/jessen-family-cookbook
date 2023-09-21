@@ -1,0 +1,51 @@
+$tealLight: #D3DCD3;
+$tealMedium: #A9BBA9;
+$tealDark: #689483;
+
+$goldLight: #FFD09F;
+$goldMedium: #E49D53;
+
+$orange: #B85535;
+$lightBrown: #6E3320;
+$darkBrown: #421E13;
+
+$green: #354D44;
+$darkGreen: #172D24;
+
+
+$header-font-weight: 600;
+$header-font-size: 48px;
+
+
+$button-font-size: 20px;
+
+$subheader-font-weight: 400;
+$subheader-font-size: 24px;
+
+$paragraph-font-weight: 300;
+$paragraph-font-size: 16px;
+
+$border-radius: 6px;
+
+//Mixins
+
+@mixin header-font() {
+  font-weight: $header-font-weight;
+  font-size: $header-font-size;
+}
+
+@mixin button-font() {
+
+  font-size: $button-font-size;
+  text-transform: uppercase;
+}
+
+@mixin subheader-font() {
+  font-size: $subheader-font-size;
+  font-weight: $subheader-font-weight;
+}
+
+@mixin paragraph-font() {
+  $paragraph-font-weight: 200;
+  $paragraph-font-size: 16px;
+}

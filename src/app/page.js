@@ -1,12 +1,26 @@
 import Image from 'next/image'
-import styles from './page.module.css'
+import Link from 'next/link'
+import styles from './page.module.scss'
 import NavBar from './components/navBar/navBar.js'
+import RecipeThumbnail from './components/recipeThumbnail/recipeThumbnail'
+import SideNav from './components/sideNav/sideNav'
+
 
 export default function Home() {
 
   return (
     <main className={styles.main}>
-     <NavBar/>
+
+      {/* <SideNav/> */}
+      <NavBar/>  
+      <div className={styles.recipeThumbnailContainer}>
+        <Link href='recipe-card'>
+            <RecipeThumbnail/>
+        </Link>
+        <Link href='recipe-card'>
+            <RecipeThumbnail/>
+        </Link>
+      </div>
     </main>
   )
 

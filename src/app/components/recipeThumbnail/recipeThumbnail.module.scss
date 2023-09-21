@@ -1,0 +1,10 @@
+@use "./src/app/vars.scss";
+
+.recipeCard {
+    text-align: center;
+    border: 5px solid vars.$goldMedium;
+
+    img{
+        width: 90%;
+    }
+}

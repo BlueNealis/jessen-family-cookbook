@@ -5,8 +5,12 @@ const RecipeCard = () => {
     const [recipeName, setRecipeName] = useState('French Silk Pie');
     const [imageSource, setImageSource] = useState('');
     const [category, setCategory] = useState('Dessert');
-    const [cardContent, setCardContent] = useState('Fluffy chocolate pie with whipcream topping');
-   
+    const [cardContent, setCardContent] = useState('Fluffy chocolate pie with whipped cream topping');
+    const [activeHeader, setActiveHeader] = useState([true, false, false])
+
+   const handleClick = (e) => {
+        console.log(e.target.id) 
+   }
     return(
         <div className={styles.pageContainer}>
             <div className={styles.cardContainer}>
@@ -20,6 +24,12 @@ const RecipeCard = () => {
                     </div>
                 </div>       
                 <div className={styles.recipeInfo}>
+                    <div className={styles.infoNav}>
+                        <h1 onClick={handleClick} id='ingredients' className={styles.activeHeader}>Ingredients</h1>
+                        <h1 onClick={handleClick} id='method'>Method</h1>
+                        <h1  onClick={handleClick} id='notes'>Notes</h1>
+                    </div>
+                    
                     {cardContent}
                 </div>
             </div>

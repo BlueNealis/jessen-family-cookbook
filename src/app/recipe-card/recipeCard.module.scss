@@ -27,9 +27,36 @@
 }
 
 .recipeInfo {
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     background-color: vars.$tealDark;
     height: 200vh;
     margin-top: 20px;
+
+    .infoNav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        h1 {
+            padding: 24px;
+            width: 100%;
+            margin-top: 0; 
+            text-align: center;
+            font-size: 24px !important;
+            font-weight: 300;
+        }
+
+        .activeHeader {
+            background-color: vars.$tealMedium;
+        }
+    }
+
+    .infoNav:hover {
+        cursor:pointer;
+        h1:hover {
+         background-color: vars.$tealDiff;
+        }
+    }
 }

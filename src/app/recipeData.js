@@ -56,3 +56,5 @@ const recipes = [{
     notes:[{dateAdded:'09/13/2020', author:'Blue Jessen', message:'You can half and quarter this recipe and it works fine, I used a smaller loaf pans for the smaller recipes with similar bake times (ie: like 35 mins)'}]
 }
 ]
+
+export default recipes;

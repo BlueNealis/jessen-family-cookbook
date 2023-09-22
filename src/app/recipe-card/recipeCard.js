@@ -1,13 +1,14 @@
 'use client'
 import styles from './recipeCard.module.scss'
 import { useEffect, useState } from 'react';
+import recipes from '../recipeData';
 const RecipeCard = () => {
     const [recipeName, setRecipeName] = useState('French Silk Pie');
     const [imageSource, setImageSource] = useState('');
     const [category, setCategory] = useState('Dessert');
    
     const [isActive, setIsActive] = useState({ingredients: true, method:false, notes:false})
-    let recipeData = {ingredients: ['test', 'test'], method:'the process', notes:'like this pie'} 
+    let recipeData = {ingredients: [], method:'the process', notes:'like this pie'} 
     const [cardContent, setCardContent] = useState(recipeData['ingredients']);
 
    const handleClick = (e) => {
@@ -35,6 +36,28 @@ const RecipeCard = () => {
     } else {
         return ``
     }
+   }
+
+   useEffect(() => {
+    formatIngredients()
+
+   })
+
+   const formatIngredients = () => {
+    let ingredientList = [];
+    let ingredientString ='';
+        recipes[1].ingredients.forEach((type) => {
+            type.ingredients.forEach((ingredient) => {
+                ingredientString = ''
+                Object.keys(ingredient).forEach((item) => {
+                    if(typeof ingredient[item] === 'string') {
+                    ingredientString = ingredientString + ' ' + ingredient[item]
+                    }
+                })
+                ingredientList.push(ingredientString)
+            })
+        })
+       recipeData.ingredients = ingredientList;
    }
   
 

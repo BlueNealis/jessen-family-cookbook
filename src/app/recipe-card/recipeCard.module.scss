@@ -18,6 +18,11 @@
     }
 }
 
+.cardContent {
+    display: flex;
+    flex-direction: column;
+}
+
 .recipeHeader {
     background-color: vars.$goldMedium;
     padding: 10px; 

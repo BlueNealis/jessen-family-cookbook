@@ -41,17 +41,19 @@ const RecipeCard = () => {
    useEffect(() => {
     formatIngredients()
 
+    setCardContent(recipeData.ingredients)
+
    })
 
    const formatIngredients = () => {
     let ingredientList = [];
-    let ingredientString ='';
+    let ingredientString =``;
         recipes[1].ingredients.forEach((type) => {
             type.ingredients.forEach((ingredient) => {
-                ingredientString = ''
+                ingredientString = ``
                 Object.keys(ingredient).forEach((item) => {
                     if(typeof ingredient[item] === 'string') {
-                    ingredientString = ingredientString + ' ' + ingredient[item]
+                    ingredientString = `${ingredientString} ${ingredient[item]}`
                     }
                 })
                 ingredientList.push(ingredientString)
@@ -79,9 +81,14 @@ const RecipeCard = () => {
                         <h1 onClick={handleClick} id='method' className={checkActiveHeader('method')}>Method</h1>
                         <h1  onClick={handleClick} id='notes' className={checkActiveHeader('notes')}>Notes</h1>
                     </div>
-                    
-                    {cardContent}
-                    <button onClick={handleClick} id='notes'>Add A Note</button>
+                    <div className={styles.cardContent}>
+                    <ul>
+                     {cardContent.map((ingredient) => {
+                        return <li key={ingredient}>{ingredient}</li>
+                     })}
+                     </ul>
+                        <button onClick={handleClick} id='notes'>Add A Note</button>
+                    </div>
                 </div>
             </div>
         </div>

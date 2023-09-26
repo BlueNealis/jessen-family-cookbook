@@ -22,6 +22,10 @@
     display: flex;
     flex-direction: column; 
     text-align: left;
+
+    h3, li {
+        text-transform: capitalize;
+    }
 }
 
 

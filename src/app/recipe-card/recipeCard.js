@@ -98,8 +98,7 @@ const RecipeCard = () => {
                         {Object.keys(cardContent).map((item) => {
                             if(cardContent[item].type !== ``) {
                                 console.log(cardContent[item], 'object')
-                            return ([<h2>{cardContent[item].type}</h2>,
-                            <li>{cardContent[item].ingredients[0]}</li>])}
+                            return ([cardContent[item].type, cardContent[item].ingredients])}
                         })}
 
                         </ul>

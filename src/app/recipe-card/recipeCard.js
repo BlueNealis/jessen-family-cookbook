@@ -43,23 +43,35 @@ const RecipeCard = () => {
 
     setCardContent(recipeData.ingredients)
 
-   })
+   },[])
 
    const formatIngredients = () => {
     let ingredientList = [];
     let ingredientString =``;
-        recipes[1].ingredients.forEach((type) => {
+    let ingredientObject = {};
+    let allIngredients = []
+
+    recipes[0].ingredients.forEach((type) => {
+        ingredientObject = {};
+        ingredientList = [];
+        if(type.type !== `` ) {
+            ingredientObject['type'] = <h3>{type.type}</h3>
             type.ingredients.forEach((ingredient) => {
                 ingredientString = ``
                 Object.keys(ingredient).forEach((item) => {
                     if(typeof ingredient[item] === 'string') {
-                    ingredientString = `${ingredientString} ${ingredient[item]}`
+                        ingredientString = `${ingredientString} ${ingredient[item]}`
                     }
                 })
-                ingredientList.push(ingredientString)
+                ingredientList.push(<li>{ingredientString}</li>)
             })
-        })
-       recipeData.ingredients = ingredientList;
+            ingredientObject['ingredients'] = ingredientList
+        }
+        allIngredients.push(ingredientObject)
+    })
+    console.log(allIngredients, 'formatted ingredients')
+
+       recipeData.ingredients = allIngredients;
    }
   
 
@@ -82,11 +94,15 @@ const RecipeCard = () => {
                         <h1  onClick={handleClick} id='notes' className={checkActiveHeader('notes')}>Notes</h1>
                     </div>
                     <div className={styles.cardContent}>
-                    <ul>
-                     {cardContent.map((ingredient) => {
-                        return <li key={ingredient}>{ingredient}</li>
-                     })}
-                     </ul>
+                        <ul>
+                        {Object.keys(cardContent).map((item) => {
+                            if(cardContent[item].type !== ``) {
+                                console.log(cardContent[item], 'object')
+                            return ([<h2>{cardContent[item].type}</h2>,
+                            <li>{cardContent[item].ingredients[0]}</li>])}
+                        })}
+
+                        </ul>
                         <button onClick={handleClick} id='notes'>Add A Note</button>
                     </div>
                 </div>

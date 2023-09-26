@@ -20,8 +20,11 @@
 
 .cardContent {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
+    text-align: left;
 }
+
+
 
 .recipeHeader {
     background-color: vars.$goldMedium;

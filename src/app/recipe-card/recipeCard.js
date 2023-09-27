@@ -8,7 +8,7 @@ const RecipeCard = () => {
     const [category, setCategory] = useState('Dessert');
    
     const [isActive, setIsActive] = useState({ingredients: true, method:false, notes:false})
-    let recipeData = {ingredients: [], method:'the process', notes:'like this pie'} 
+    const [recipeData, setRecipeData] = useState({ingredients: {}, method:'the process', notes:'like this pie'}) 
     const [cardContent, setCardContent] = useState(recipeData['ingredients']);
 
    const handleClick = (e) => {
@@ -27,6 +27,8 @@ const RecipeCard = () => {
    }
 
    const handleContentChange = (type) => {
+   formatIngredients()
+   formatRecipeMethod()
     setCardContent(recipeData[type])
    }
 
@@ -40,10 +42,33 @@ const RecipeCard = () => {
 
    useEffect(() => {
     formatIngredients()
+    setCardContent(recipeData['ingredients'])
 
-    setCardContent(recipeData.ingredients)
+    },[])
 
-   },[])
+
+   //Dealing with some weird rendering issues after I format the recipe data need to figure out if im setting state incorrectly 
+
+   const formatRecipeMethod = () => {
+    let allDirections = []
+    let directionsObject = {}
+    let directionsList = []
+    recipes[0].method.forEach((type) => {
+        directionsObject = {};
+        directionsList = [];
+        
+        if(type.type !== `` ) {
+            directionsObject['type'] = <h3>{type.type}</h3>
+            type.steps.forEach((step) => {
+                directionsList.push(<li>{step}</li>)
+                })
+               directionsObject['steps'] = directionsList
+            }
+            allDirections.push(directionsObject)
+        })
+      
+       setRecipeData({...recipeData, method: allDirections})
+   }
 
    const formatIngredients = () => {
     let ingredientList = [];
@@ -69,9 +94,7 @@ const RecipeCard = () => {
         }
         allIngredients.push(ingredientObject)
     })
-    console.log(allIngredients, 'formatted ingredients')
-
-       recipeData.ingredients = allIngredients;
+       setRecipeData({...recipeData, ingredients: allIngredients})
    }
   
 
@@ -95,12 +118,10 @@ const RecipeCard = () => {
                     </div>
                     <div className={styles.cardContent}>
                         <ul>
-                        {Object.keys(cardContent).map((item) => {
-                            if(cardContent[item].type !== ``) {
-                                console.log(cardContent[item], 'object')
-                            return ([cardContent[item].type, cardContent[item].ingredients])}
-                        })}
-
+                            {Object.keys(cardContent).map((item) => {
+                                if(cardContent[item].type !== ``) {
+                                return ([cardContent[item].type, cardContent[item].ingredients])}
+                            })}
                         </ul>
                         <button onClick={handleClick} id='notes'>Add A Note</button>
                     </div>

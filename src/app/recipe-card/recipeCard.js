@@ -66,7 +66,7 @@ const RecipeCard = () => {
             }
             allDirections.push(directionsObject)
         })
-      
+      console.log('test', allDirections)
        setRecipeData({...recipeData, method: allDirections})
    }
 
@@ -119,8 +119,11 @@ const RecipeCard = () => {
                     <div className={styles.cardContent}>
                         <ul>
                             {Object.keys(cardContent).map((item) => {
-                                if(cardContent[item].type !== ``) {
-                                return ([cardContent[item].type, cardContent[item].ingredients])}
+                                if(cardContent[item].type !== `` && cardContent[item].ingredients) {
+                                return ([cardContent[item].type, cardContent[item].ingredients])} 
+                                else {
+                                    return ([cardContent[item].type, cardContent[item].steps])
+                                }
                             })}
                         </ul>
                         <button onClick={handleClick} id='notes'>Add A Note</button>

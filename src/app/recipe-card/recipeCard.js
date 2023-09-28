@@ -8,7 +8,7 @@ const RecipeCard = () => {
     const [category, setCategory] = useState('Dessert');
    
     const [isActive, setIsActive] = useState({ingredients: true, method:false, notes:false})
-    const [recipeData, setRecipeData] = useState({ingredients: [], method:'the process', notes:'like this pie'}) 
+    const [recipeData, setRecipeData] = useState({ingredients: [], method:[], notes:'like this pie'}) 
     const [cardContent, setCardContent] = useState(recipeData['ingredients']);
 
    const handleClick = (e) => {
@@ -58,15 +58,12 @@ const RecipeCard = () => {
         directionsList = [];
         
         if(type.type !== `` ) {
-            directionsObject['type'] = <h3>{type.type}</h3>
+            allDirections.push(<h3>{type.type}</h3>)
             type.steps.forEach((step) => {
-                directionsList.push(<li>{step}</li>)
+                allDirections.push(<li>{step}</li>)
                 })
-               directionsObject['steps'] = directionsList
             }
-            allDirections.push(directionsObject)
         })
-      console.log('test', allDirections)
        setRecipeData({...recipeData, method: allDirections})
    }
 

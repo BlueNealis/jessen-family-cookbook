@@ -8,7 +8,7 @@ const RecipeCard = () => {
     const [category, setCategory] = useState('Dessert');
    
     const [isActive, setIsActive] = useState({ingredients: true, method:false, notes:false})
-    const [recipeData, setRecipeData] = useState({ingredients: {}, method:'the process', notes:'like this pie'}) 
+    const [recipeData, setRecipeData] = useState({ingredients: [], method:'the process', notes:'like this pie'}) 
     const [cardContent, setCardContent] = useState(recipeData['ingredients']);
 
    const handleClick = (e) => {
@@ -71,16 +71,13 @@ const RecipeCard = () => {
    }
 
    const formatIngredients = () => {
-    let ingredientList = [];
+
     let ingredientString =``;
-    let ingredientObject = {};
     let allIngredients = []
 
     recipes[0].ingredients.forEach((type) => {
-        ingredientObject = {};
-        ingredientList = [];
         if(type.type !== `` ) {
-            ingredientObject['type'] = <h3>{type.type}</h3>
+            allIngredients.push(<h3>{type.type}</h3>)
             type.ingredients.forEach((ingredient) => {
                 ingredientString = ``
                 Object.keys(ingredient).forEach((item) => {
@@ -88,11 +85,9 @@ const RecipeCard = () => {
                         ingredientString = `${ingredientString} ${ingredient[item]}`
                     }
                 })
-                ingredientList.push(<li>{ingredientString}</li>)
+                allIngredients.push(<li>{ingredientString}</li>)
             })
-            ingredientObject['ingredients'] = ingredientList
         }
-        allIngredients.push(ingredientObject)
     })
        setRecipeData({...recipeData, ingredients: allIngredients})
    }
@@ -117,15 +112,9 @@ const RecipeCard = () => {
                         <h1  onClick={handleClick} id='notes' className={checkActiveHeader('notes')}>Notes</h1>
                     </div>
                     <div className={styles.cardContent}>
-                        <ul>
-                            {Object.keys(cardContent).map((item) => {
-                                if(cardContent[item].type !== `` && cardContent[item].ingredients) {
-                                return ([cardContent[item].type, cardContent[item].ingredients])} 
-                                else {
-                                    return ([cardContent[item].type, cardContent[item].steps])
-                                }
-                            })}
-                        </ul>
+                   
+                            {isActive['ingredients']? <ul>{cardContent}</ul> : <ol>{cardContent}</ol>}
+               
                         <button onClick={handleClick} id='notes'>Add A Note</button>
                     </div>
                 </div>

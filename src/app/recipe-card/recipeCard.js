@@ -8,8 +8,11 @@ const RecipeCard = () => {
     const [category, setCategory] = useState('Dessert');
    
     const [isActive, setIsActive] = useState({ingredients: true, method:false, notes:false})
-    const [recipeData, setRecipeData] = useState({ingredients: [], method:[], notes:'like this pie'}) 
-    const [cardContent, setCardContent] = useState(recipeData['ingredients']);
+    const [cardContent, setCardContent] = useState([]);
+
+   useEffect(() => {
+    setCardContent(formatIngredients())
+    },[])
 
    const handleClick = (e) => {
         let headers = Object.keys(isActive)
@@ -27,9 +30,12 @@ const RecipeCard = () => {
    }
 
    const handleContentChange = (type) => {
-   formatIngredients()
-   formatRecipeMethod()
-    setCardContent(recipeData[type])
+    if(type === 'ingredients') {
+        setCardContent(formatIngredients())
+    } else if(type === 'method') {
+        setCardContent(formatRecipeMethod())
+    } 
+    
    }
 
    const checkActiveHeader = (type) => {
@@ -39,12 +45,6 @@ const RecipeCard = () => {
         return ``
     }
    }
-
-   useEffect(() => {
-    formatIngredients()
-    setCardContent(recipeData['ingredients'])
-
-    },[])
 
 
    //Dealing with some weird rendering issues after I format the recipe data need to figure out if im setting state incorrectly 
@@ -64,7 +64,7 @@ const RecipeCard = () => {
                 })
             }
         })
-       setRecipeData({...recipeData, method: allDirections})
+       return allDirections
    }
 
    const formatIngredients = () => {
@@ -86,7 +86,7 @@ const RecipeCard = () => {
             })
         }
     })
-       setRecipeData({...recipeData, ingredients: allIngredients})
+       return allIngredients
    }
   
 
